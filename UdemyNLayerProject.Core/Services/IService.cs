@@ -4,12 +4,11 @@ using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace UdemyNLayerProject.Core.Repositories
+namespace UdemyNLayerProject.Core.Services
 {
-    public interface IRepository<TEntity> where TEntity : class
+    public interface IService<TEntity> where TEntity : class
     {
-
-        Task<IEnumerable<TEntity>> Where(Expression<Func<TEntity, bool>> predicate=null);
+        Task<IEnumerable<TEntity>> Where(Expression<Func<TEntity, bool>> predicate = null);
 
         Task<TEntity> SingleOrDefaultAsync(Expression<Func<TEntity, bool>> predicate);
 
@@ -24,3 +23,4 @@ namespace UdemyNLayerProject.Core.Repositories
         TEntity Update(TEntity entity);
     }
 }
+
