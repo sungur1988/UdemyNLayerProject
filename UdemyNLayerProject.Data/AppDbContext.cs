@@ -25,6 +25,7 @@ namespace UdemyNLayerProject.Data
 
 
             modelBuilder.ApplyConfiguration(new ProductSeed(new int[] { 1, 2 }));
+            modelBuilder.ApplyConfiguration(new CategorySeed(new int[] { 1, 2 }));
         }
     }
 }
