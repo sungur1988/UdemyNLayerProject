@@ -54,9 +54,9 @@ namespace UdemyNLayerProject.Data.Repositories
 
         public async Task<IEnumerable<TEntity>> Where(Expression<Func<TEntity, bool>> predicate = null)
         {
-            return await predicate == null
-                ? _dbSet.ToListAsync()
-                : _dbSet.Where(predicate).ToListAsync();
+            return  predicate == null
+                ? await _dbSet.ToListAsync()
+                : await _dbSet.Where(predicate).ToListAsync();
         }
     }
 }
