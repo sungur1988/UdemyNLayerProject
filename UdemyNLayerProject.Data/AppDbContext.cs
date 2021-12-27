@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Text;
 using UdemyNLayerProject.Core.Entities;
 using UdemyNLayerProject.Data.Configurations;
+using UdemyNLayerProject.Data.Seeds;
 
 namespace UdemyNLayerProject.Data
 {
@@ -21,6 +22,9 @@ namespace UdemyNLayerProject.Data
         {
             modelBuilder.ApplyConfiguration(new ProductConfiguration());
             modelBuilder.ApplyConfiguration(new CategoryConfiguration());
+
+
+            modelBuilder.ApplyConfiguration(new ProductSeed(new int[] { 1, 2 }));
         }
     }
 }
