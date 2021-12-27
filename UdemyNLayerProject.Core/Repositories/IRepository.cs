@@ -13,9 +13,9 @@ namespace UdemyNLayerProject.Core.Repositories
 
         Task<TEntity> SingleOrDefaultAsync(Expression<Func<TEntity, bool>> predicate);
 
-        Task<TEntity> AddAsync(TEntity entity);
+        Task AddAsync(TEntity entity);
 
-        Task<IEnumerable<TEntity>> AddRangeAsync(IEnumerable<TEntity> entities);
+        Task AddRangeAsync(IEnumerable<TEntity> entities);
 
         void Remove(TEntity entity);
 
