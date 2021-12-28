@@ -31,6 +31,11 @@ namespace UdemyNLayerProject.Data.Repositories
             await _dbSet.AddRangeAsync(entities);
         }
 
+        public async Task<TEntity> GetById(int id)
+        {
+            return await _dbSet.FindAsync(id);
+        }
+
         public void Remove(TEntity entity)
         {
             _dbSet.Remove(entity);
@@ -52,7 +57,7 @@ namespace UdemyNLayerProject.Data.Repositories
             return entity;
         }
 
-        public async Task<IEnumerable<TEntity>> Where(Expression<Func<TEntity, bool>> predicate = null)
+        public async Task<IEnumerable<TEntity>> GetAll(Expression<Func<TEntity, bool>> predicate = null)
         {
             return  predicate == null
                 ? await _dbSet.ToListAsync()
