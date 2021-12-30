@@ -35,8 +35,10 @@ namespace UdemyNLayerProject.API
         {
 
             services.AddScoped<IProductService, ProductService>();
+            services.AddScoped<ICategoryService, CategoryService>();
             services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
             services.AddScoped(typeof(IService<>), typeof(GenericService<>));
+            services.AddAutoMapper(typeof(Startup));
             services.AddDbContext<AppDbContext>(options =>
             {
                 options.UseSqlServer(Configuration.GetConnectionString("SqlConnStr"), opt => { opt.MigrationsAssembly("UdemyNLayerProject.Data"); });
