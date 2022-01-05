@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using UdemyNLayerProject.API.Filters;
 using UdemyNLayerProject.Core.DTOs;
 using UdemyNLayerProject.Core.Entities;
 using UdemyNLayerProject.Core.Services;
@@ -41,12 +42,16 @@ namespace UdemyNLayerProject.API.Controllers
             var products = await _productService.Where(x => x.Price < maxPrice && x.Price > minPrice);
             return Ok(_mapper.Map<IEnumerable<ProductDto>>(products));
         }
+        [ValidationFilter]
         [HttpPost]
         public async Task<IActionResult> AddProduct(ProductDto productDto)
         {
             var product = await _productService.AddAsync(_mapper.Map<Product>(productDto));
             return Ok(_mapper.Map<ProductDto>(product));
         }
+
+
+        [ValidationFilter]
         [HttpPut]
         public  IActionResult UpdateProduct(ProductDto productDto)
         {

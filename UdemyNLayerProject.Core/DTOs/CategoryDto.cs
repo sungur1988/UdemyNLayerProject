@@ -9,7 +9,7 @@ namespace UdemyNLayerProject.Core.DTOs
     {
         public int Id { get; set; }
 
-        [Required]
+        [Required(ErrorMessage ="{0} alanı gereklidir.")]
         public string Name { get; set; }
     }
 }

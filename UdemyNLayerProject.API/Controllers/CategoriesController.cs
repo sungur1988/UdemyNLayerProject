@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using UdemyNLayerProject.API.Filters;
 using UdemyNLayerProject.Core.DTOs;
 using UdemyNLayerProject.Core.Entities;
 using UdemyNLayerProject.Core.Services;
@@ -42,6 +43,8 @@ namespace UdemyNLayerProject.API.Controllers
             var category = await _categoryService.GetByIdAsync(id);
             return Ok(_mapper.Map<CategoryDto>(category));
         }
+
+        [ValidationFilter]
         [HttpPost]
         public async Task<IActionResult> Save(CategoryDto categoryDto)
         {
@@ -57,6 +60,7 @@ namespace UdemyNLayerProject.API.Controllers
             _categoryService.Remove(category);
             return NoContent();
         }
+        [ValidationFilter]
         [HttpPut]
         public IActionResult Update(CategoryDto categoryDto)
         {
