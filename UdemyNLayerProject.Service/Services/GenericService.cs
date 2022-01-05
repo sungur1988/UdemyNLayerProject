@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
+using UdemyNLayerProject.Core.Entities;
 using UdemyNLayerProject.Core.Repositories;
 using UdemyNLayerProject.Core.Services;
 using UdemyNLayerProject.Core.UnitOfWorks;
 
 namespace UdemyNLayerProject.Service.Services
 {
-    public class GenericService<TEntity> : IService<TEntity> where TEntity : class
+    public class GenericService<TEntity> : IService<TEntity> where TEntity : class , IEntity, new()
     {
         public IUnitOfWork _unitOfWork;
         private IRepository<TEntity> _repository;

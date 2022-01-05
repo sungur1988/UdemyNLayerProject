@@ -24,7 +24,7 @@ namespace UdemyNLayerProject.API.Controllers
             _mapper = mapper;
         }
 
-
+        
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {
@@ -37,6 +37,7 @@ namespace UdemyNLayerProject.API.Controllers
             var category = await _categoryService.SingleOrDefaultAsync(x => x.Name == name);
             return Ok(_mapper.Map<CategoryDto>(category));
         }
+        [ServiceFilter(typeof(NotFoundFilter<Category>))]
         [HttpGet("{id:int}")]
         public async Task<IActionResult> GetById(int id)
         {

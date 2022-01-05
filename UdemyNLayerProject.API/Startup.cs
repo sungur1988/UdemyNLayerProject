@@ -11,6 +11,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using UdemyNLayerProject.API.Filters;
 using UdemyNLayerProject.Core.Repositories;
 using UdemyNLayerProject.Core.Services;
 using UdemyNLayerProject.Core.UnitOfWorks;
@@ -44,6 +45,8 @@ namespace UdemyNLayerProject.API
                 options.UseSqlServer(Configuration.GetConnectionString("SqlConnStr"), opt => { opt.MigrationsAssembly("UdemyNLayerProject.Data"); });
             });
             services.AddScoped<IUnitOfWork, UnitOfWork>();
+
+            services.AddScoped(typeof(NotFoundFilter<>));
             services.AddControllers();
             services.Configure<ApiBehaviorOptions>(options => {
 

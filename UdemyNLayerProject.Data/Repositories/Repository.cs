@@ -5,11 +5,12 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
+using UdemyNLayerProject.Core.Entities;
 using UdemyNLayerProject.Core.Repositories;
 
 namespace UdemyNLayerProject.Data.Repositories
 {
-    public class Repository<TEntity> : IRepository<TEntity> where TEntity : class
+    public class Repository<TEntity> : IRepository<TEntity> where TEntity : class,IEntity,new()
     {
         protected AppDbContext appDbContext;
         private DbSet<TEntity> _dbSet;

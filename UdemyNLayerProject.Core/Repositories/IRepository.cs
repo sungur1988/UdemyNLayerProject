@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
+using UdemyNLayerProject.Core.Entities;
 
 namespace UdemyNLayerProject.Core.Repositories
 {
-    public interface IRepository<TEntity> where TEntity : class
+    public interface IRepository<TEntity> where TEntity : class,IEntity,new()
     {
 
         Task<TEntity> GetById(int id);

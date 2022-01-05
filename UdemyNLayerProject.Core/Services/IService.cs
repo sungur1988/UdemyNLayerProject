@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
+using UdemyNLayerProject.Core.Entities;
 
 namespace UdemyNLayerProject.Core.Services
 {
-    public interface IService<TEntity> where TEntity : class
+    public interface IService<TEntity> where TEntity : class,IEntity,new()
     {
         Task<TEntity> GetByIdAsync(int id);
 

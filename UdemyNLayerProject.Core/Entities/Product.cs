@@ -4,7 +4,7 @@ using System.Text;
 
 namespace UdemyNLayerProject.Core.Entities
 {
-    public class Product
+    public class Product : IEntity
     {
         public int Id { get; set; }
         public string Name { get; set; }

@@ -30,6 +30,7 @@ namespace UdemyNLayerProject.API.Controllers
             var products = await _productService.GetAllAsync();
             return Ok(_mapper.Map<IEnumerable<ProductDto>>(products));
         }
+        [ServiceFilter(typeof(NotFoundFilter<Product>))]
         [HttpGet("{id:int}")]
         public async Task<IActionResult> GetById(int id)
         {

@@ -5,7 +5,7 @@ using System.Text;
 
 namespace UdemyNLayerProject.Core.Entities
 {
-    public class Category
+    public class Category : IEntity
     {
         public Category()
         {
